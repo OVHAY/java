@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+// import javafx.scene.shape.Rectangle;
+abstract class shape {
+    double a,b,h;
+    abstract void printarea();
+}
+    class rectangle extends shape{
+        void getdata(double x,double y){
+            a=x;
+            b=y;
+        }
+        void printarea(){
+            double area=a*b;
+            System.out.println("area of rectangle is :"+area+"cm2");
+        }
+
+    }
+    class triangle extends shape{
+        void getdata(double x,double y){
+            b=x;
+            h=y;
+        }
+        void printarea(){
+            double area=1/2*(b*h);
+            System.out.println("are of triangle is :"+area);
+        }
+
+    }
+    class circle extends shape{
+        void getdata(double x){
+            a=x;
+        }
+        void printarea(){
+            double area=3.14*a*a;
+            System.out.println("area of circle is :"+area);
+            
+        }
+    }
+    class area1{
+        public static void main(String[] args) {
+         
+            Scanner o=new Scanner(System.in);
+            int ch;
+            rectangle r=new rectangle();
+            triangle t=new triangle();
+            circle c=new circle();
+            System.out.println("-----------------------------MENU---------------------------");
+            System.out.println("SELECT SHAPE OF WHICH U WANT TO FIND AREA");
+            System.out.println("1.RECTANGLE\n2.trinangle\n3.circle\n");
+            System.out.println("plzz enter your choice");
+            ch=o.nextInt();
+            switch(ch){
+                case 1: System.out.println("enter lemgth and breadth in order");
+                       double l=o.nextDouble();
+                       double b=o.nextDouble();
+                       r.getdata(l, b);
+                       r.printarea();
+                       break;
+                       case 2: System.out.println("enter base and height in order");
+                       double b1=o.nextDouble();
+                       double h=o.nextDouble();
+                       t.getdata(b1, h);
+                       t.printarea();
+                       break;
+                       case 3: System.out.println("enter radius");
+                       double r1=o.nextDouble();
+                      
+                       c.getdata(r1);
+                       c.printarea();
+                       break;
+                       default: System.out.println("invalid choice");
+
+
+
+            }
+
+
+        }
+    }
+
+
